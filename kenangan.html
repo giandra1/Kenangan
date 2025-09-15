@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenangan Persahabatan Kita</title>
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --peach: #FFD4C4;
+            --cream: #FFF8E7;
+            --light-blue: #B8E6E1;
+            --soft-pink: #FFEEF0;
+            --warm-beige: #F5E6D3;
+            --lavender: #E8D5FF;
+            --mint: #D4F4DD;
+            --sunset: #FFB5A3;
+            --text-dark: #4A4A4A;
+            --text-light: #6B6B6B;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 50%, var(--light-blue) 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 248, 231, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF8A80, #81C784, #64B5F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 138, 128, 0.1);
+            color: #FF8A80;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero-container {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--peach) 0%, var(--light-blue) 50%, var(--lavender) 100%);
+            border-radius: 40px;
+            margin-bottom: 4rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .hero-container h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-container p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FF8A80, #81C784, #64B5F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Sections */
+        .gallery-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-title h3 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .category-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-image.adventure { background: linear-gradient(135deg, var(--sunset), var(--peach)); }
+        .memory-image.celebration { background: linear-gradient(135deg, var(--lavender), var(--soft-pink)); }
+        .memory-image.daily { background: linear-gradient(135deg, var(--mint), var(--light-blue)); }
+        .memory-image.milestone { background: linear-gradient(135deg, var(--warm-beige), var(--sunset)); }
+        .memory-image.spontaneous { background: linear-gradient(135deg, var(--light-blue), var(--lavender)); }
+
+        .memory-image::before {
+            content: attr(data-emoji);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+
+        .memory-card:hover .memory-image::before {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.6;
+        }
+
+        .memory-content {
+            padding: 2rem;
+        }
+
+        .memory-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .memory-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .memory-story {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Friend Profiles */
+        .friends-section {
+            background: rgba(255,255,255,0.3);
+            padding: 4rem 2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(15px);
+            margin: 5rem 0;
+        }
+
+        .friends-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .friend-profile {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .friend-profile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FF8A80, #81C784, #64B5F6);
+        }
+
+        .friend-profile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+        }
+
+        .friend-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--peach), var(--light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .friend-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .friend-nickname {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .friend-description {
+            text-align: left;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .friend-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .trait-tag {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, var(--soft-pink), var(--light-blue));
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            margin: 6rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #FF8A80, #81C784, #64B5F6);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #FF8A80;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Personal Message Section */
+        .message-section {
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--soft-pink) 100%);
+            padding: 5rem 3rem;
+            border-radius: 40px;
+            text-align: center;
+            margin: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-section::before {
+            content: '💌';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .message-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #FF8A80, #81C784);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .personal-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--warm-beige);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .footer-hearts {
+            font-size: 2rem;
+            margin: 2rem 0;
+            opacity: 0.7;
+        }
+
+        .footer-author {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-container h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.5rem 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .friends-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 4rem !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .message-section {
+                padding: 3rem 2rem;
+            }
+        }
+        
+          /* Container */
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.audio-controls:hover {
+    transform: translateY(-3px);
+}
+
+/* Button */
+.audio-btn {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    border: none;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 118, 142, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.audio-btn:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 6px 25px rgba(255, 118, 142, 0.6);
+}
+
+/* Aktif (misalnya pas musik nyala) */
+.audio-btn.active {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.6);
+    animation: pulse 1.5s infinite;
+}
+
+/* Animasi pulse */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+
+        /* Animation delays */
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        .memory-card:nth-child(1) { animation-delay: 0.1s; }
+        .memory-card:nth-child(2) { animation-delay: 0.2s; }
+        .memory-card:nth-child(3) { animation-delay: 0.3s; }
+        .memory-card:nth-child(4) { animation-delay: 0.4s; }
+        .memory-card:nth-child(5) { animation-delay: 0.5s; }
+        .memory-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Kenangan Kita ✨</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#friends">Sahabat Ku</a></li>
+                <li><a href="#gallery">Galeri Kenangan</a></li>
+                <li><a href="#timeline">Perjalanan Kita</a></li>
+                <li><a href="#message">Pesan Ku</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section">
+            <div class="hero-container">
+                <h1>Persahabatan Yang Tak Terlupakan</h1>
+                <p>Sebuah koleksi kenangan indah dari perjalanan persahabatan kita. Setiap momen yang terekam di sini adalah bukti betapa berharganya kalian dalam hidupku. Mari kita kenang bersama cerita-cerita yang telah membentuk kita menjadi seperti sekarang ini.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Sahabat Sejati</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Kenangan Indah</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">💫</div>
+                        <div class="stat-label">Tahun Bersama</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Friends Profile Section -->
+        <section id="friends" class="section">
+            <div class="section-header">
+                <h2>Sahabat-Sahabat Terbaikku</h2>
+                <p>Kalian adalah alasan mengapa hidup ini begitu berwarna dan penuh makna</p>
+            </div>
+            
+            <div class="friends-section">
+                <div class="friends-container">
+                    <div class="friend-profile">
+                        <div class="friend-avatar">👩</div>
+                        <h3 class="friend-name">[Nama Teman 1]</h3>
+                        <p class="friend-nickname">"Si Penuh Energi"</p>
+                        
+                        <div class="friend-traits">
+                            <span class="trait-tag">Ceria</span>
+                            <span class="trait-tag">Penyemangat</span>
+                            <span class="trait-tag">Kreatif</span>
+                            <span class="trait-tag">Setia</span>
+                        </div>
+                        
+                        <div class="friend-description">
+                            <p>Kamu adalah matahari dalam hidup kami. Energi positifmu selalu berhasil mengangkat mood bahkan di hari-hari tersulit. Kreativitasmu dalam mencari solusi dan cara pandangmu yang selalu optimis membuat setiap masalah terasa lebih ringan.</p>
+                            <br>
+                            <p>Terima kasih karena selalu ada saat kami membutuhkan tawa, dukungan, dan semangat baru. Persahabatan denganmu mengajarkan kami arti dari kebahagiaan sejati.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="friend-profile">
+                        <div class="friend-avatar">👨</div>
+                        <h3 class="friend-name">[Nama Teman 2]</h3>
+                        <p class="friend-nickname">"Si Bijak Nan Humoris"</p>
+                        
+                        <div class="friend-traits">
+                            <span class="trait-tag">Bijaksana</span>
+                            <span class="trait-tag">Lucu</span>
+                            <span class="trait-tag">Perhatian</span>
+                            <span class="trait-tag">Dapat Diandalkan</span>
+                        </div>
+                        
+                        <div class="friend-description">
+                            <p>Kamu adalah perpustakaan hidup yang penuh dengan kebijaksanaan, sekaligus komedian terbaik yang selalu berhasil membuat kami tertawa terbahak-bahak. Kombinasi yang langka dan sangat berharga!</p>
+                            <br>
+                            <p>Nasihat-nasihatmu selalu tepat sasaran, dan humor khasmu membuat setiap pertemuan menjadi memorable. Terima kasih telah menjadi teman yang bisa diandalkan dalam segala situasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="section-header">
+                <h2>Galeri Kenangan Kita</h2>
+                <p>Setiap foto menyimpan seribu cerita dan satu juta kenangan indah</p>
+            </div>
+
+            <!-- Adventure Memories -->
+            <div class="gallery-category">
+                <div class="category-title">
+                    <h3>🏔️ Petualangan Bersama</h3>
+                    <p class="category-description">Momen-momen berani menjelajahi dunia dan keluar dari zona nyaman</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="memory-card">
+                        <div class="memory-image adventure" data-emoji="🏕️"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Camping Pertama</h3>
+                            <p class="memory-date">Musim Panas 2023</p>
+                            <p class="memory-story">Malam itu kita tidur di bawah langit berbintang, berbagi cerita dan mimpi-mimpi kita. Suara jangkrik dan api unggun menjadi soundtrack malam yang tak terlupakan. Ada yang takut serangga, ada yang excited banget, dan ada yang jadi chef dadakan with instant noodles!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image adventure" data-emoji="🏊‍♀️"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Road Trip ke Pantai</h3>
+                            <p class="memory-date">Liburan Semester</p>
+                            <p class="memory-story">Perjalanan 6 jam dengan playlist random, snack bertebaran, dan GPS yang kadang ngaco. Sampai di pantai, kita langsung terjun ke air dengan baju lengkap karena terlalu excited. Foto-foto kita basah kuyup tapi senyuman kita paling cerah!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image adventure" data-emoji="🚲"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Cycling Adventure</h3>
+                            <p class="memory-date">Weekend Santai</p>
+                            <p class="memory-story">Keliling kota dengan sepeda, mencari kuliner tersembunyi dan spot foto instagramable. Ada yang hampir jatuh karena salah fokus lihat makanan, ada yang jadi fotografer dadakan, pokoknya seru banget sampai lupa waktu!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celebration Memories -->
+            <div class="gallery-category">
+                <div class="category-title">
+                    <h3>🎉 Perayaan & Milestone</h3>
+                    <p class="category-description">Momen-momen spesial yang kita rayakan bersama dengan penuh kebahagiaan</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="memory-card">
+                        <div class="memory-image celebration" data-emoji="🎂"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Surprise Birthday</h3>
+                            <p class="memory-date">Hari Yang Tak Terlupakan</p>
+                            <p class="memory-story">Merencanakan surprise birthday selama berminggu-minggu, sampai harus berbohong kecil-kecilan biar gak ketahuan. Lihat ekspresi shock dan happy-nya si ulang tahun, semua effort kita totally worth it! Cake buatan sendiri yang agak peyot tapi penuh cinta.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image celebration" data-emoji="🎓"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Graduation Day</h3>
+                            <p class="memory-date">Milestone Bersama</p>
+                            <p class="memory-story">Hari wisuda yang penuh haru. Kita sudah berjanji dari awal kuliah untuk lulus bareng-bareng, dan akhirnya mimpi itu jadi kenyataan! Air mata bahagia, pelukan erat, dan janji untuk tetap berteman selamanya. This is just the beginning of our journey!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image celebration" data-emoji="🏆"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Achievement Celebration</h3>
+                            <p class="memory-date">Moment of Pride</p>
+                            <p class="memory-story">Saat salah satu dari kita berhasil meraih achievement yang diimpikan, yang lain ikut bangga seolah itu pencapaian sendiri. Treat makan-makan di tempat favorit, foto-foto proud moment, dan cerita perjuangan yang bikin kita makin respect sama satu sama lain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Life Memories -->
+            <div class="gallery-category">
+                <div class="category-title">
+                    <h3>☕ Kehidupan Sehari-hari</h3>
+                    <p class="category-description">Momen-momen sederhana yang ternyata paling berkesan dalam hidup kita</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="memory-card">
+                        <div class="memory-image daily" data-emoji="☕"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Coffee Shop Hangouts</h3>
+                            <p class="memory-date">Rutinitas Mingguan</p>
+                            <p class="memory-story">Setiap weekend pasti ketemu di coffee shop yang sama, meja yang sama, order minuman yang sama. Ngobrolin apa aja dari hal sepele sampai life philosophy. Barista-nya sampai hafal pesanan kita tanpa harus bilang. Home away from home!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image daily" data-emoji="🍕"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Movie Marathon Night</h3>
+                            <p class="memory-date">Weekend Chill</p>
+                            <p class="memory-story">Begadang nonton film dari genre horor sampai romance, stok snack berlimpah, dan debat sengit soal plot twist yang gak masuk akal. Ada yang selalu tertidur di tengah film, ada yang jadi kritikus film dadakan, perfect night ever!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image daily" data-emoji="🛒"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Grocery Shopping Together</h3>
+                            <p class="memory-date">Weekend Activity</p>
+                            <p class="memory-story">Belanja groceries bareng yang harusnya 30 menit jadi 2 jam karena kita explore setiap lorong, nyoba sample gratis, dan impulse buying barang-barang yang gak perlu. Trolley penuh tapi list belanja asli dilupakan di rumah!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spontaneous Memories -->
+            <div class="gallery-category">
+                <div class="category-title">
+                    <h3>✨ Momen Spontan</h3>
+                    <p class="category-description">Kenangan tak terduga yang justru menjadi yang paling memorable</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="memory-card">
+                        <div class="memory-image spontaneous" data-emoji="🌧️"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Hujan-hujanan</h3>
+                            <p class="memory-date">Unexpected Moment</p>
+                            <p class="memory-story">Terjebak hujan deras tanpa payung, akhirnya kita malah main-main di hujan kayak anak kecil. Basah kuyup tapi ketawa lepas banget. Foto-foto kita yang amburadul tapi genuine happiness-nya keliatan banget. Sometimes the best moments are unplanned!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image spontaneous" data-emoji="🌅"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Sunrise Hunting</h3>
+                            <p class="memory-date">Early Morning Adventure</p>
+                            <p class="memory-story">Ide dadakan jam 4 pagi buat liat sunrise. Mata masih setengah merem, rambut acak-acakan, tapi semangat tinggi! Sampai lokasi pas banget sunrise-nya mulai, dan pemandangannya breathtaking. Worth banget the sleep sacrifice!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card">
+                        <div class="memory-image spontaneous" data-emoji="🎤"></div>
+                        <div class="memory-content">
+                            <h3 class="memory-title">Karaoke Night</h3>
+                            <p class="memory-date">Random Tuesday</p>
+                            <p class="memory-story">Karaoke spontan karena ada yang lagi galau butuh pelampiasan. Nyanyi lagu sedih sampe serak, terus lanjut lagu semangat sampe lompat-lompat. Voice notes kita saling nyemangatin jadi playlist favorit yang gak akan di-delete!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="section-header">
+                <h2>Perjalanan Persahabatan Kita</h2>
+                <p>Timeline momen-momen penting yang membentuk persahabatan kita</p>
+            </div>
+            
+            <div class="timeline-section">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Awal Perkenalan</div>
+                            <h3 class="timeline-title">Pertama Kali Bertemu</h3>
+                            <p class="timeline-description">Siapa sangka perkenalan awkward di hari pertama itu akan jadi awal dari persahabatan yang luar biasa. First impression yang biasa-biasa aja, tapi chemistry-nya langsung klop!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Bulan Pertama</div>
+                            <h3 class="timeline-title">Mulai Dekat</h3>
+                            <p class="timeline-description">Mulai sering hangout bareng, ngobrolin hobi dan interest yang sama. Ternyata selera kita banyak yang matching, dari musik sampai makanan!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Tantangan Pertama</div>
+                            <h3 class="timeline-title">Through Thick and Thin</h3>
+                            <p class="timeline-description">Konflik kecil yang justru bikin kita lebih saling understand. Belajar cara komunikasi yang baik dan respect perbedaan satu sama lain.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Milestone Bersama</div>
+                            <h3 class="timeline-title">Major Life Events</h3>
+                            <p class="timeline-description">Saling support di momen-momen penting hidup. Dari achievement celebrations sampai tough times, kita selalu ada untuk satu sama lain.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Sekarang & Selamanya</div>
+                            <h3 class="timeline-title">Persahabatan Abadi</h3>
+                            <p class="timeline-description">Persahabatan yang udah teruji waktu dan berbagai situasi. No matter what happens, kita tahu bahwa bond ini akan selalu kuat dan special.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Message Section -->
+        <section id="message" class="section">
+            <div class="message-section">
+                <h2 class="message-title">Pesan Dari Hatiku</h2>
+                <div class="personal-message">
+                    <p>Dear sahabat-sahabatku yang luar biasa...</p>
+                    <br>
+                    <p>Website ini aku buat sebagai love letter untuk kalian berdua. Setiap halaman, setiap foto, setiap kata di sini adalah refleksi dari betapa berharganya kalian dalam hidupku. Mungkin terdengar cheesy, tapi kalian adalah proof bahwa soulmate gak cuma ada dalam romantic relationship - kalian adalah platonic soulmates-ku.</p>
+                    <br>
+                    <p>Terima kasih karena telah mengajarkanku arti persahabatan yang sesungguhnya. Kalian hadir di saat aku butuh teman bicara, partner in crime, cheerleader, dan kadang jadi reality check juga. Persahabatan kita gak cuma tentang fun times, tapi juga tentang grow together, support each other, dan accept satu sama lain apa adanya.</p>
+                    <br>
+                    <p>Aku gak bisa imagine hidup tanpa tawa-tawa kita, inside jokes yang cuma kita yang ngerti, dan comfort yang aku rasakan setiap kali kita ngumpul. Kalian adalah home dalam bentuk manusia.</p>
+                    <br>
+                    <p>Semoga persahabatan kita terus berlanjut sampai kita tua, punya keluarga masing-masing, tapi tetep carve out time buat hangout dan catching up. Someday nanti kita akan flashback ke momen-momen ini dan tersenyum, grateful karena pernah mengalami beautiful friendship seperti ini.</p>
+                    <br>
+                    <p>I love you both, more than words can express. Thank you for being the best friends a person could ask for. Here's to many more years of adventures, laughter, and unconditional friendship! 💙</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-quote">
+                "Persahabatan sejati bukan tentang seberapa lama kita sudah kenal, tapi tentang siapa yang datang dan tidak pernah pergi ketika seluruh dunia meninggalkan kita."
+            </div>
+            <div class="footer-hearts">💙 💚 💜</div>
+            <div class="footer-author">
+                Dibuat dengan sepenuh hati untuk kalian, sahabat-sahabat terbaikku<br>
+                — Kenangan yang tak akan pernah pudar —
+            </div>
+        </div>
+    </footer>
+     <div class="audio-controls">
+        <button class="audio-btn" id="audioToggle">
+            <i class="fas fa-music"></i>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <!-- Ganti "path/to/your-song.mp3" dengan path file musik Anda -->
+            <source src="music/you.mp3" type="audio/mpeg">
+            <source src="music/about-you.ogg" type="audio/ogg">
+            <!-- Fallback jika browser tidak support format di atas -->
+            <p>Browser Anda tidak mendukung audio HTML5.</p>
+        </audio>
+    </div>
+
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 248, 231, 0.98)';
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.2)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(255, 248, 231, 0.95)';
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+                nav.style.backdropFilter = 'blur(15px)';
+            }
+        });
+
+        // Enhanced Intersection Observer for staggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.memory-card, .section, .friend-profile, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced hover effects for memory cards
+        document.querySelectorAll('.memory-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Friend profile hover effects
+        document.querySelectorAll('.friend-profile').forEach(profile => {
+            profile.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.querySelector('.friend-avatar').style.transform = 'scale(1.1)';
+            });
+            
+            profile.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.querySelector('.friend-avatar').style.transform = 'scale(1)';
+            });
+        });
+
+        // Timeline animations
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                    
+                    // Animate the dot
+                    const dot = entry.target.querySelector('.timeline-dot');
+                    if (dot) {
+                        dot.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            dot.style.transform = 'scale(1)';
+                        }, 200);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            // Set initial state
+            item.style.opacity = '0';
+            if (item.classList.contains('timeline-item:nth-child(odd)')) {
+                item.style.transform = 'translateX(-50px)';
+            } else {
+                item.style.transform = 'translateX(50px)';
+            }
+            timelineObserver.observe(item);
+        });
+
+        // Add floating animation to hero stats
+        document.querySelectorAll('.stat-item').forEach((item, index) => {
+            item.style.animation = `float 3s ease-in-out infinite ${index * 0.5}s`;
+        });
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Loading animation with heart effect
+        window.addEventListener('load', () => {
+            // Create hearts animation
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 200);
+            }
+        });
+
+      
+
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero-container');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+         const audioToggle = document.getElementById('audioToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        audioToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                audioToggle.innerHTML = '<i class="fas fa-music"></i>';
+                isPlaying = false;
+            } else {
+                backgroundMusic.play().catch(e => {
+                    console.log('Audio autoplay prevented by browser policy');
+                });
+                audioToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                isPlaying = true;
+            }
+        });
+
+        // Auto-play background music (may be blocked by browsers)
+        window.addEventListener('load', () => {
+            backgroundMusic.play().catch(e => {
+                console.log('Audio autoplay prevented. User interaction required.');
+            });
+        });
+
+    </script>
+</body>
+</html>
